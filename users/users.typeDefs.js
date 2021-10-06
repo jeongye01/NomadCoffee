@@ -9,12 +9,13 @@ export default gql`
     location:String
     avatarURL:String
     githubUsername:String
+    followers:[User]   
+    following:[User]   
     createdAt:String!    
     updatedAt:String!      
   }
  
-  type Query{
-    seeProfile(username:String!):User
-  }
+  
+  
 
 `

@@ -2,7 +2,7 @@ require("dotenv").config();
 import express from "express";
 import {ApolloServer} from "apollo-server-express";
 import {typeDefs,resolvers} from "./schema";
-import { getIntrospectionQuery } from 'graphql';
+import logger from "morgan";
 import {getUser} from "./users/user.utils";
 
 const apollo=new ApolloServer({

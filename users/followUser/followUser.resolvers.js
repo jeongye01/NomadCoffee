@@ -14,14 +14,31 @@ export default {
             error:"That user does not exists."
           }
         }
-        await client.user.Update(
+       
+        const updatedUser=await client.user.Update(
           {
             where:{id:loggedInUser.id},
             data:{
-              
+              following:{
+                connect:{
+                  username,
+                }
+              }
             }
           }
         );
+        if(updatedUser.id){
+          return {
+           ok:true
+          }
+        }
+        else{
+          return {
+            ok:false,
+            error:"Could not follow user."
+          }
+        }
+        
       }
     ),
   }
